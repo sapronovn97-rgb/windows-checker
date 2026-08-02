@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>WinChecker App Store</title>
+
+    <!-- Метатеги подтверждения прав собственности Яндекса и Google -->
+    <meta name="yandex-verification" content="5597a6ea8342c47e" />
+    <meta name="google-site-verification" content="97zNdpp4v_UfE7EInN7vG96A-x_2bKz1LidrXh6qYms" />
+
+    <!-- SEO-оптимизация для поисковой выдачи -->
+    <meta name="description" content="Скачать Windows Checker — бесплатная программа для ускорения ПК, очистки кэша Temp и мусора обновлений." />
+    <meta name="keywords" content="Windows Checker, скачать Windows Checker, очистка Windows, ускорение компьютера, очистить Temp" />
+    <meta name="author" content="Nikita" />
+
+    <style>
+        body {
+            background-color: #1c1c1c;
+            color: #ffffff;
+            font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, Roboto, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+        .container {
+            background-color: #272727;
+            border: 1px solid #3c3c3c;
+            border-radius: 12px;
+            padding: 40px;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+            max-width: 480px;
+            width: 90%;
+        }
+        .version-selector-block {
+            margin-bottom: 20px;
+        }
+        .version-label {
+            font-size: 14px;
+            color: #b3b3b3;
+            margin-right: 10px;
+        }
+        select {
+            background-color: #202020;
+            color: #60cdff;
+            border: 1px solid #444444;
+            padding: 6px 12px;
+            font-size: 14px;
+            font-weight: 600;
+            border-radius: 6px;
+            outline: none;
+            cursor: pointer;
+        }
+        select:hover {
+            border-color: #60cdff;
+        }
+        h1 {
+            font-size: 32px;
+            margin: 0 0 12px 0;
+            font-weight: 600;
+            letter-spacing: -0.5px;
+        }
+        .description {
+            color: #b3b3b3;
+            font-size: 15px;
+            line-height: 1.6;
+            margin-bottom: 32px;
+        }
+        .btn-main {
+            background-color: #0078d4;
+            color: #ffffff;
+            text-decoration: none;
+            padding: 14px 32px;
+            font-size: 16px;
+            font-weight: 600;
+            border-radius: 6px;
+            display: block;
+            transition: background-color 0.2s, transform 0.1s;
+            box-shadow: 0 4px 12px rgba(0, 120, 212, 0.3);
+        }
+        .btn-main:hover {
+            background-color: #106ebe;
+        }
+        .btn-main:active {
+            transform: scale(0.98);
+        }
+        .btn-main.disabled {
+            background-color: #444444;
+            color: #888888;
+            box-shadow: none;
+            pointer-events: none;
+            cursor: not-allowed;
+        }
+        .instructions {
+            background-color: #202020;
+            border-radius: 8px;
+            padding: 20px;
+            margin-top: 32px;
+            text-align: left;
+            border: 1px solid #2d2d2d;
+        }
+        .instructions h3 {
+            margin: 0 0 10px 0;
+            font-size: 14px;
+            color: #60cdff;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        .instructions ol {
+            margin: 0;
+            padding-left: 20px;
+            color: #cccccc;
+            font-size: 13px;
+            line-height: 1.6;
+        }
+        .instructions li {
+            margin-bottom: 8px;
+        }
+        .cert-link {
+            color: #60cdff;
+            text-decoration: underline;
+            font-weight: bold;
+        }
+        .cert-link:hover {
+            color: #0078d4;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <div class="version-selector-block">
+            <span class="version-label">Выберите версию:</span>
+            <select id="versionSelect" onchange="updateLinks()">
+                <option id="option1010" value="1.0.1.0">1.0.1.0 (Текущая)</option>
+                <option id="option1020" value="1.0.2.0">1.0.2.0 (Скоро выйдет!)</option>
+                <option id="option1000" value="1.0.0.0">1.0.0.0 (LTS / До 02.05.2027)</option>
+            </select>
+        </div>
+
+        <h1>Windows Checker</h1>
+        <p id="appDescription" class="description">Удобный инструмент для ускорения компьютера и наведения порядка в системе. Программа за один клик находит характеристики ПК, освобождает гигабайты места от скрытого мусора и старых обновлений, чистит кэш всех браузеров, исправляет ошибки Windows и проверяет интернет-соединение.</p>
+        
+        <a id="downloadBtn" href="#" download class="btn-main">Скачать приложение (ZIP)</a>
+        
+        <div id="instructionBlock" class="instructions">
+            <h3>Важно перед установкой:</h3>
+            <ol>
+                <li>Сначала <a id="certLink" href="#" download class="cert-link">скачайте сертификат</a>.</li>
+                <li>Откройте скачанный файл сертификата на ПК -> нажмите <b>«Установить сертификат»</b>.</li>
+                <li>Выберите расположение: <b>«Локальный компьютер»</b>.</li>
+                <li>Поместите его в хранилище: <b>«Доверенные корневые центры сертификации»</b>.</li>
+                <li>После этого распакуйте архив и запустите файл приложения <b>MSIX</b>.</li>
+            </ol>
+        </div>
+    </div>
+
+    <script>
+        const dates = {
+            "1.0.0.0": new Date('2027-05-02T23:59:59'),
+            "1.0.1.0": new Date('2028-12-01T23:59:59')
+        };
+
+        // Точный путь к файлам с учетом кодировки кириллицы папки "Мой сайт"
+        const gitPath = "OneDrive/Documents/%D0%9C%D0%BE%D0%B9%20%D1%81%D0%B0%D0%B9%D1%82/files/";
+
+        function isExpired(ver) {
+            if (!dates[ver]) return false;
+            return new Date() > dates[ver];
+        }
+
+        window.onload = function() {
+            if (isExpired("1.0.0.0")) {
+                document.getElementById("option1000").innerText = "1.0.0.0 (ELD / Расширенная поддержка)";
+            }
+            if (isExpired("1.0.1.0")) {
+                document.getElementById("option1010").innerText = "1.0.1.0 (Устарела / Удалена)";
+            }
+            updateLinks();
+        };
+
+        function updateLinks() {
+            var version = document.getElementById("versionSelect").value;
+            var downloadBtn = document.getElementById("downloadBtn");
+            var certLink = document.getElementById("certLink");
+            var description = document.getElementById("appDescription");
+            var instructionBlock = document.getElementById("instructionBlock");
+            
+            if (version === "1.0.2.0") {
+                description.innerText = "В обновлении 1.0.2.0 появится мощный защитник. Программа будет находить и удалять скрытые вирусы и майнеры, которые тайно тормозят ваш компьютер и маскируются под системные файлы. Также мы добавим еще больше функций для очистки системы!";
+                downloadBtn.innerText = "Версия в разработке";
+                downloadBtn.classList.add("disabled");
+                instructionBlock.style.display = "none";
+            } 
+            else if (version === "1.0.0.0" && isExpired("1.0.0.0")) {
+                description.innerText = "Внимание: Основная поддержка версии 1.0.0.0 завершена 2 мая 2027 года. Сейчас данная сборка находится в статусе ELD (Extended Life Date). Новые обновления для неё не выходят, но файлы по-прежнему доступны для загрузки по вашему запросу.";
+                downloadBtn.innerText = "Скачать Legacy-сборку (ZIP)";
+                downloadBtn.classList.remove("disabled");
+                instructionBlock.style.display = "block";
+                
+                downloadBtn.href = gitPath + "WinChecker (Package)_" + version + "_x64.zip";
+                certLink.href = gitPath + "WinChecker (Package)_" + version + "_x64.cer";
+                certLink.innerText = "скачайте сертификат версии " + version;
+            }
+            else if (isExpired(version)) {
+                description.innerText = "Поддержка версии " + version + " официально завершена. Файлы этой сборки удалены из репозитория для экономии места. Пожалуйста, переключитесь на актуальную версию программы.";
+                downloadBtn.innerText = "Файл удален";
+                downloadBtn.classList.add("disabled");
+                instructionBlock.style.display = "none";
+            }
+            else {
+                description.innerText = "Удобный инструмент для ускорения компьютера и наведения порядка в системе. Программа за один клик находит характеристики ПК, освобождает гигабайты места от скрытого мусора и старых обновлений, чистит кэш всех браузеров, исправляет ошибки Windows и проверяет интернет-соединение.";
+                downloadBtn.innerText = "Скачать приложение (ZIP)";
+                downloadBtn.classList.remove("disabled");
+                instructionBlock.style.display = "block";
+                
+                downloadBtn.href = gitPath + "WinChecker (Package)_" + version + "_x64.zip";
+                certLink.href = gitPath + "WinChecker (Package)_" + version + "_x64.cer";
+                certLink.innerText = "скачайте сертификат версии " + version;
+            }
+        }
+    </script>
+
+</body>
+</html>
